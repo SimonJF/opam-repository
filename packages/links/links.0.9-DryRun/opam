@@ -1,0 +1,47 @@
+opam-version: "2.0"
+maintainer: "Simon Fowler <simon.fowler@ed.ac.uk>"
+authors: "The Links Team <links-dev@inf.ed.ac.uk>"
+synopsis: "The Links Programming Language"
+description: "Links is a functional programming language designed to make web programming easier."
+homepage: "https://github.com/links-lang/links"
+dev-repo: "git+https://github.com/links-lang/links.git"
+bug-reports: "https://github.com/links-lang/links/issues"
+license: "GPL-2"
+version: "0.9"
+
+
+build: [
+  [ "dune" "subst" ] {pinned}
+  [ "dune" "exec" "preinstall/preinstall.exe" "--" "-libdir" _:lib ]
+  [ "dune" "build" "-p" name "-j" jobs ]
+]
+
+depends: [
+  "ocaml" {>= "4.06.0"}
+  "dune" {build}
+  "ppx_deriving"
+  "ppx_deriving_yojson" {>= "3.3"}
+  "base64"
+  "linenoise"
+  "ANSITerminal"
+  "lwt" {>= "3.1.0"}
+  "cohttp"
+  "cohttp-lwt"
+  "cohttp-lwt-unix"
+  "conduit-lwt-unix"
+  "uri"
+  "websocket"
+  "websocket-lwt-unix"
+  "safepass"
+  "result"
+  "ocamlfind"
+  "menhir"
+]
+url {
+  src:
+    "https://github.com/links-lang/links/releases/download/0.9-DryRun/links-0.9-DryRun.tbz"
+  checksum: [
+    "sha256=b5d33c148bb99acb13b9d4ef7f2b9e805fd105265b34ccebfe35ba4a112907b9"
+    "sha512=e7c7227e357d77945445a1683c5f4378118d2cffc24aeec74af6b5d6b01d8f6b04b37365c49df2557b6c8933f50fb520e98e6ce421aa6993a71a5b835f611bab"
+  ]
+}

@@ -1,0 +1,29 @@
+opam-version: "2.0"
+maintainer: "Jan Stolarek <jan.stolarek@ed.ac.uk>"
+authors: "The Links Team <links-dev@inf.ed.ac.uk>"
+synopsis: "SQLite database driver for the Links Programming Language"
+description: "SQLite database driver for the Links Programming Language"
+homepage: "https://github.com/links-lang/links"
+dev-repo: "git+https://github.com/links-lang/links.git"
+bug-reports: "https://github.com/links-lang/links/issues"
+license: "GPL-2"
+
+build: [
+  [ "dune" "subst" ] {pinned}
+  [ "dune" "build" "-p" name "-j" jobs ]
+]
+
+depends: [
+  "ocaml" {>= "4.06.0"}
+  "dune" {build}
+  "sqlite3"
+  "links"
+]
+url {
+  src:
+    "https://github.com/links-lang/links/releases/download/0.9-DryRun/links-0.9-DryRun.tbz"
+  checksum: [
+    "sha256=b5d33c148bb99acb13b9d4ef7f2b9e805fd105265b34ccebfe35ba4a112907b9"
+    "sha512=e7c7227e357d77945445a1683c5f4378118d2cffc24aeec74af6b5d6b01d8f6b04b37365c49df2557b6c8933f50fb520e98e6ce421aa6993a71a5b835f611bab"
+  ]
+}
