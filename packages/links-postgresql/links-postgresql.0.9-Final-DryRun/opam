@@ -1,0 +1,30 @@
+opam-version: "2.0"
+maintainer: "Simon Fowler <simon.fowler@ed.ac.uk>"
+authors: "The Links Team <links-dev@inf.ed.ac.uk>"
+synopsis: "Postgresql database driver for the Links Programming Language"
+description: "Postgresql database driver for the Links Programming Language"
+homepage: "https://github.com/links-lang/links"
+dev-repo: "git+https://github.com/links-lang/links.git"
+bug-reports: "https://github.com/links-lang/links/issues"
+license: "GPL-2"
+
+
+build: [
+  [ "dune" "subst" ] {pinned}
+  [ "dune" "build" "-p" name "-j" jobs ]
+]
+
+depends: [
+  "ocaml" {>= "4.06.0"}
+  "dune" {build}
+  "postgresql"
+  "links"
+]
+url {
+  src:
+    "https://github.com/links-lang/links/releases/download/0.9-Final-DryRun/links-0.9-Final-DryRun.tbz"
+  checksum: [
+    "sha256=5aa87cb4499c4674aca6766e7816a3a97877ca62c0b6db297fce2b49c9febd85"
+    "sha512=e62267dddde5270f2ebc453cff0145d01d963af10ec2ac4d334e03ee613b9a295613ae24f7a1bc1234997cb3b3d969381395a219e08d0681612d05d946aac04c"
+  ]
+}
